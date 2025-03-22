@@ -113,13 +113,19 @@ class TaskView extends StackedView<TaskViewModel> {
                                 Positioned(
                                   top: 0,
                                   right: 0,
-                                  child: Icon(
-                                    Icons.star,
-                                    color:
-                                        viewModel.taskList[index].isFavourite ==
-                                                true
-                                            ? Colors.amber.shade800
-                                            : Colors.grey,
+                                  child: IconButton(
+                                    icon: Icon(
+                                      task.isFavourite!
+                                          ? Icons.star
+                                          : Icons.star_border,
+                                      color:
+                                          task.isFavourite!
+                                              ? Colors.amber.shade800
+                                              : Colors.grey,
+                                    ),
+                                    onPressed: () {
+                                      viewModel.toggleFavorite(task);
+                                    },
                                   ),
                                 ),
                               ],
