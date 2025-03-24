@@ -16,7 +16,7 @@ class TaskViewModel extends BaseViewModel {
       var response = await apiGetTaskV1();
 
       if (response.data.isNotEmpty) {
-        taskList = response.data;
+        taskList = [];
       }
       notifyListeners();
     } catch (e) {

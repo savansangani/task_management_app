@@ -42,6 +42,16 @@ class TaskView extends StackedView<TaskViewModel> {
                 ? Center(
                   child: CircularProgressIndicator(color: Colors.lightBlue),
                 )
+                : viewModel.taskList.isEmpty
+                ? Center(
+                  child: Text(
+                    "No Task Found",
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey,
+                    ),
+                  ),
+                )
                 : Expanded(
                   child: ListView.builder(
                     itemCount: viewModel.taskList.length,
